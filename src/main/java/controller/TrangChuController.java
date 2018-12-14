@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes("user")
+
 public class TrangChuController {
 
     @Autowired
@@ -27,13 +27,15 @@ public class TrangChuController {
 
     @GetMapping
     @Transactional
-    public String ViewTrangChu(@SessionAttribute("user") String email, ModelMap modelMap, HttpSession httpSession)
+    public String ViewTrangChu( ModelMap modelMap, HttpSession httpSession)
     {
         System.out.println(httpSession.getAttribute("email"));
         if(httpSession.getAttribute("email") != null ){
             String email_session = (String)httpSession.getAttribute("email");
             String chucaidau = email_session.substring(0,1);
             modelMap.addAttribute("chucaidau",chucaidau);
+        }else{
+
         }
         return  "trangchu";
     }

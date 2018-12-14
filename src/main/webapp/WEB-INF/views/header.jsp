@@ -2,6 +2,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
+
 <div id="header">
     <div class="header-top">
         <div class="container">
@@ -13,11 +14,18 @@
             </div>
             <div class="pull-right auto-width-right">
                 <ul class="top-details menu-beta l-inline">
-                    <li><a href="/dangky">Đăng ký</a></li>
-                        <%--<c:if test="${chucaidau} ! = null " >--%>
-                            <%--<li>${chucaidau}</li>--%>
-                    <%--</c:if>--%>
-                    <li><a href="dangnhap/">Đăng Nhập</a></li>
+
+                    <c:choose>
+                        <c:when test="${chucaidau != null}">
+                            <li style="border-left: none !important;border-right: none !important;"><p id="round_login_success">${chucaidau}</p></li>
+                        </c:when>
+                        <c:otherwise>
+                            <li><a href="/dangky">Đăng ký</a></li>
+                            <li><a href="dangnhap/">Đăng Nhập</a></li>
+
+                        </c:otherwise>
+                    </c:choose>
+
 
                 </ul>
             </div>

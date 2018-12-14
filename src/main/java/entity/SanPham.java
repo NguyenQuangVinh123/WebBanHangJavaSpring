@@ -15,6 +15,9 @@ public class SanPham {
     DanhMucSanPham danhmucsanpham;
     String giatien;
     String hinhsanpham;
+    String unit;
+    String created_at;
+    String updated_at;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "masanpham")
     Set<ChiTietSanPham> chitietsanpham;
@@ -89,5 +92,29 @@ public class SanPham {
 
     public void setHinhsanpham(String hinhsanpham) {
         this.hinhsanpham = hinhsanpham;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(String updated_at) {
+        this.updated_at = updated_at;
     }
 }

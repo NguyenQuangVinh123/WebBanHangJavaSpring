@@ -9,7 +9,7 @@ public class DanhMucSanPham {
     int madanhmuc;
     String tendanhmuc;
     String hinhdanhmuc;
-
+    String description;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "madanhmuc")
     Set<SanPham> danhsachsanpham;
@@ -44,5 +44,13 @@ public class DanhMucSanPham {
 
     public void setHinhdanhmuc(String hinhdanhmuc) {
         this.hinhdanhmuc = hinhdanhmuc;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
