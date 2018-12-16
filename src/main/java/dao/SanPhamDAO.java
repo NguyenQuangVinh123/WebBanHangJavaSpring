@@ -1,12 +1,15 @@
 package dao;
 
 import daoimp.SanPhamImp;
+import entity.NhanVien;
 import entity.SanPham;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,7 +21,23 @@ public class SanPhamDAO implements SanPhamImp {
     SessionFactory sessionFactory;
 
     @Override
-    public List<SanPham> LayDanhSachSanPhamLimit(int sbatdau) {
-        return null;
+    @Transactional
+    public List<SanPham> LayDanhSachSanPhamLimit(int spbatdau) {
+        Session session = sessionFactory.getCurrentSession();
+        String query = "FROM SANPHAM";
+
+        List<SanPham> listSp = (List<SanPham>) session.createQuery(query).setFirstResult(spbatdau).setMaxResults(16).getResultList();
+
+        return listSp;
+    }
+
+    @Override
+    @Transactional
+    public SanPham LayDanhSachChiTietSanPhamTheoMa(int masanpham){
+        Session session = sessionFactory.getCurrentSession();
+        String query = "FROM SANPHAM sp where sp.masanpham" + masanpham;
+        SanPham sanPham = (SanPham) session.createQuery(query).getSingleResult();
+
+        return sanPham ;
     }
 }

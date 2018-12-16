@@ -1,6 +1,7 @@
 package controller;
 
 import entity.NhanVien;
+import entity.SanPham;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import service.NhanVienService;
+import service.SanPhamService;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +28,9 @@ public class TrangChuController {
     @Autowired
     NhanVienService nhanVienService;
 
+    @Autowired
+    SanPhamService sanPhamService;
+
     @GetMapping
     @Transactional
     public String ViewTrangChu( ModelMap modelMap, HttpSession httpSession)
@@ -37,6 +43,9 @@ public class TrangChuController {
         }else{
 
         }
+
+        List<SanPham> listsp = sanPhamService.LayDanhSachSanPhamLimit(0);
+        modelMap.addAttribute("listsp",listsp);
         return  "trangchu";
     }
 
