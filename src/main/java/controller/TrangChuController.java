@@ -31,6 +31,9 @@ public class TrangChuController {
     @Autowired
     SanPhamService sanPhamService;
 
+    @Autowired
+
+
     @GetMapping
     @Transactional
     public String ViewTrangChu( ModelMap modelMap, HttpSession httpSession)

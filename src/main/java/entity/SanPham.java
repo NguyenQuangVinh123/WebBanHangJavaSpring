@@ -18,7 +18,7 @@ public class SanPham {
     String unit;
     String created_at;
     String updated_at;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch =FetchType.EAGER  ,cascade = CascadeType.ALL)
     @JoinColumn(name = "masanpham")
     Set<ChiTietSanPham> chitietsanpham;
 

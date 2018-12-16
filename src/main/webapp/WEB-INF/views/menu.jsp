@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
@@ -11,11 +12,11 @@
 						<li><a href="#">Trang chủ</a></li>
 						<li><a href="#">Sản phẩm</a>
 							<ul class="sub-menu">
-								<li><a href="#">Banh loai A</a></li>
-								<li><a href="#">Banh loai B</a></li>
-								<li><a href="#">Banh loai C</a></li>
-								<li><a href="#">Banh loai D</a></li>
-								<li><a href="#">Banh loai E</a></li>
+								<c:forEach var="value" items="${danhmuc}">
+									<li><a href="#">${value.getTendanhmuc()}</a></li>
+
+								</c:forEach>
+
 							</ul>
 						</li>
 						<li><a href="about.jsp">Giới thiệu</a></li>

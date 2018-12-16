@@ -20,13 +20,13 @@
                     <a href="detail/${sp.getMasanpham()}"><img src="<c:url value="resources/Images/product/${sp.getHinhSp}" />" alt=""></a>
                 </div>
                 <div class="single-item-body">
-                    <p class="single-item-title">${sp}</p>
+                    <p class="single-item-title" data-namesp="${sp.getSP()}">${sp}</p>
                     <p class="single-item-price">
-                        <span>${sp}</span>
+                        <span data-gia="${sp.getGia()}">${sp}</span>
                     </p>
                 </div>
                 <div class="single-item-caption">
-                    <a class="add-to-cart pull-left" href="#"><i class="fa fa-shopping-cart"></i></a>
+                    <a class="add-to-cart pull-left btn-giohang"  href="#"><i class="fa fa-shopping-cart"></i></a>
                     <a class="beta-btn primary" href="detail/${sp.getMasanpham()}">Details <i class="fa fa-chevron-right"></i></a>
                     <div class="clearfix"></div>
                 </div>

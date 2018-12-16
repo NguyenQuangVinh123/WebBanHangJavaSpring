@@ -20,10 +20,10 @@
             }
         %>
 
-        <jsp:include page="header.jsp"></jsp:include>
+        <jsp:include page="header.jsp" />
             <div id="wrapper">
 
-            <jsp:include page="menu.jsp"></jsp:include>
+            <jsp:include page="menu.jsp" />
 
                 <div id="rightContent">
                     <h3>Thông tin danh mục</h3>

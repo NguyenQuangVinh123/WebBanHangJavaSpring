@@ -61,7 +61,7 @@
                                                                             <option value="1"></option>
                                                                            
                                                                         </select>-->
-                                    <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="add-to-cart btn-giohang" href="#"><i class="fa fa-shopping-cart"></i></a>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
