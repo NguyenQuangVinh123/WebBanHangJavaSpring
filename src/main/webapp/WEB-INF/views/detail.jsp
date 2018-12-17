@@ -7,6 +7,7 @@
 <html>
     <head>
        <jsp:include page="_head.jsp" />
+        <title>Trang Chi Tiet</title>
     </head>
     <body>
 
@@ -19,13 +20,13 @@
 
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <img src="image/product/" alt="">
+                                    <img src="<c:url value="../resources/Images/product/${sanPham.getHinhsanpham()}" />" alt="">
                             </div>
                             <div class="col-sm-8">
                                 <div class="single-item-body">
-                                    <p class="single-item-title">${sanPham.getTenSanPham()}</p>
+                                    <p class="single-item-title">${sanPham.getTensanpham()}</p>
                                     <p class="single-item-price">
-                                        <span>Giá</span>
+                                        <span>${sanPham.getGiatien()} VN</span>
                                     </p>
                                 </div>
 
@@ -33,34 +34,12 @@
                                 <div class="space20">&nbsp;</div>
 
                                 <div class="single-item-desc">
-                                    <p>Mô tả</p>
+                                    <p>${sanPham.getMota()}</p>
                                 </div>
                                 <div class="space20">&nbsp;</div>
 
-<!--                                <p>Options:</p>-->
                                 <div class="single-item-options">
-                                    <!--                                    <select class="wc-select" name="size">
-                                                                            <option>Size</option>
-                                                                            <option value="XS">XS</option>
-                                                                            <option value="S">S</option>
-                                                                            <option value="M">M</option>
-                                                                            <option value="L">L</option>
-                                                                            <option value="XL">XL</option>
-                                                                        </select>
-                                                                        <select class="wc-select" name="color">
-                                                                            <option<>Color</option>
-                                                                            <option value="Red">Red</option>
-                                                                            <option value="Green">Green</option>
-                                                                            <option value="Yellow">Yellow</option>
-                                                                            <option value="Black">Black</option>
-                                                                            <option value="White">White</option>
-                                                                        </select>-->
-<!--                                    <input type="text" placeholder="Nhập số lượng.." name="plus" value=""/>-->
-                                    <!--                                    <select class="wc-select" name="color">
-                                                                            <option>Số lượng</option>
-                                                                            <option value="1"></option>
-                                                                           
-                                                                        </select>-->
+
                                     <a class="add-to-cart btn-giohang" href="#"><i class="fa fa-shopping-cart"></i></a>
                                     <div class="clearfix"></div>
                                 </div>

@@ -12,7 +12,7 @@ import service.SanPhamService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/chitiet")
+@RequestMapping("/detail")
 public class ChiTietController {
 
     @Autowired

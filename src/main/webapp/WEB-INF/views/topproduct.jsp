@@ -14,15 +14,15 @@
 <div class="beta-products-list">
     <h4>Top Products</h4>
     <c:forEach var="sp" items="${listsp}">
-        <div class="col-sm-3">
+        <div class="col-sm-3" style="margin-bottom: 10px;">
             <div class="single-item">
                 <div class="single-item-header">
-                    <a href="detail/${sp.getMasanpham()}"><img src="<c:url value="resources/Images/product/${sp.getHinhSp}" />" alt=""></a>
+                    <a href="detail/${sp.getMasanpham()}"><img style="width:475px;height: 356px " src="<c:url value="resources/Images/product/${sp.getHinhsanpham()}" />" alt=""></a>
                 </div>
                 <div class="single-item-body">
-                    <p class="single-item-title" data-namesp="${sp.getSP()}">${sp}</p>
+                    <p class="single-item-title" data-namesp="${sp.getTensanpham()}">${sp.getTensanpham()}</p>
                     <p class="single-item-price">
-                        <span data-gia="${sp.getGia()}">${sp}</span>
+                        <span data-gia="${sp.getGiatien()}">${sp.getGiatien()}</span>
                     </p>
                 </div>
                 <div class="single-item-caption">
@@ -33,7 +33,4 @@
             </div>
         </div>
     </c:forEach>
-
-
-
 </div> <!-- .beta-products-list -->

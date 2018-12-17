@@ -31,7 +31,7 @@ public class TrangChuController {
     @Autowired
     SanPhamService sanPhamService;
 
-    @Autowired
+
 
 
     @GetMapping

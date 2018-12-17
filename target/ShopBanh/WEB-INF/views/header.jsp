@@ -2,9 +2,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
-<style>
-    #round_login_success{height: 38px;width:38px;border-radius: 19px;background-color: green;font-weight: 500;padding-top: 8px;padding-left: 14px;font-size: 20px;margin-top: 5px}
-</style>
+
 <div id="header">
     <div class="header-top">
         <div class="container">
@@ -17,9 +15,6 @@
             <div class="pull-right auto-width-right">
                 <ul class="top-details menu-beta l-inline">
 
-                        <%--<c:if test="${chucaidau} ! = null " >--%>
-                            <%--<li>${chucaidau}</li>--%>
-                    <%--</c:if>--%>
                     <c:choose>
                         <c:when test="${chucaidau != null}">
                             <li style="border-left: none !important;border-right: none !important;"><p id="round_login_success">${chucaidau}</p></li>

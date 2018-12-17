@@ -35,7 +35,7 @@ public class SanPhamDAO implements SanPhamImp {
     @Transactional
     public SanPham LayDanhSachChiTietSanPhamTheoMa(int masanpham){
         Session session = sessionFactory.getCurrentSession();
-        String query = "FROM SANPHAM sp where sp.masanpham" + masanpham;
+        String query = "FROM SANPHAM sp where sp.masanpham =" + masanpham;
         SanPham sanPham = (SanPham) session.createQuery(query).getSingleResult();
 
         return sanPham ;
