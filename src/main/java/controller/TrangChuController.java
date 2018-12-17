@@ -1,5 +1,7 @@
 package controller;
 
+import entity.DanhMucSanPham;
+import entity.GioHang;
 import entity.NhanVien;
 import entity.SanPham;
 import org.hibernate.Session;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import service.DanhMucService;
 import service.NhanVienService;
 import service.SanPhamService;
 
@@ -19,7 +22,7 @@ import java.util.regex.Pattern;
 
 @Controller
 @RequestMapping("/")
-
+@SessionAttributes("giohang")
 public class TrangChuController {
 
     @Autowired
@@ -31,8 +34,8 @@ public class TrangChuController {
     @Autowired
     SanPhamService sanPhamService;
 
-
-
+    @Autowired
+    DanhMucService danhMucService;
 
     @GetMapping
     @Transactional
@@ -46,7 +49,13 @@ public class TrangChuController {
         }else{
 
         }
+        if(null != httpSession.getAttribute("giohang")){
+            List<GioHang> gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
+            modelMap.addAttribute("giohang",gioHangs);
+        }
+        List<DanhMucSanPham> listdanhmuc = danhMucService.LayDanhMuc();
 
+        modelMap.addAttribute("listdanhmuc",listdanhmuc);
         List<SanPham> listsp = sanPhamService.LayDanhSachSanPhamLimit(0);
         modelMap.addAttribute("listsp",listsp);
         return  "trangchu";

@@ -40,4 +40,14 @@ public class SanPhamDAO implements SanPhamImp {
 
         return sanPham ;
     }
+
+    @Override
+    @Transactional
+    public List<SanPham> LaySanPhamTheoDanhMuc(int madanhmuc) {
+        Session session = sessionFactory.getCurrentSession();
+        String query = "FROM SANPHAM sp where sp.danhmucsanpham.madanhmuc =" +madanhmuc;
+
+        List<SanPham> listSp = (List<SanPham>) session.createQuery(query).getResultList();
+        return listSp;
+    }
 }

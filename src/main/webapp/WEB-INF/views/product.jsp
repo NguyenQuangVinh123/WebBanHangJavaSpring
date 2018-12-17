@@ -1,64 +1,21 @@
 
-<%@page import="model.ProductType"%>
-
-<%@page import="java.util.ArrayList"%>
-<%@page import="model.Cart"%>
-<%@page import="model.Product"%>
-<%@page import="dao.ProductDAO"%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Sản phẩm theo loại</title>
-        <link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">	<link rel="stylesheet" href="assets/dest/rs-plugin/css/settings.css">
-        <link rel="stylesheet" title="style" href="css/style.css">
-        <link rel="stylesheet" title="style" href="css/huong-style.css">
-        <script language="JavaScript" src="JS/main.js"></script>
+       <jsp:include page="_head.jsp" />
     </head>
     <body>
-        <%
-            ProductType pt = new ProductType();
-            ProductDAO productDAO = new ProductDAO();
-            long id_type_product = 0;
-            if (request.getParameter("id_type_product") != null) {
-                id_type_product = (Long) Long.parseLong(request.getParameter("id_type_product"));
-            }
-            Cart cart = (Cart) session.getAttribute("cart");
-            if (cart != null) {
-                cart = new Cart();
-                session.setAttribute("cart", cart);
-            }
-            int pages = 0, firstResult = 0, maxResult = 0, total = 0;
-            if (request.getParameter("pages") != null) {
-                pages = (int) Integer.parseInt(request.getParameter("pages"));
-            }
-            total = productDAO.countProductByTypeProduct(id_type_product);
-            if (total <= 6) {
-                firstResult = 1;
-                maxResult = total;
-            } else {
-                firstResult = (pages - 1) * 6;
-                maxResult = 6;
-            }
-            ArrayList<Product> listProduct = productDAO.getListProductByPages(id_type_product, firstResult, maxResult);
 
-        %>
-        <jsp:include page="header.jsp"></jsp:include>
-        <jsp:include page="menu.jsp"></jsp:include>
+        <jsp:include page="header.jsp" />
+        <jsp:include page="menu.jsp" />
             <div class="inner-header">
                 <div class="container">
                     <div class="pull-left">
-                        <h6 class="inner-title">Sản phẩm </h6>
+                        <h6 class="inner-title">${tendanhmuc} </h6>
                     </div>
 
                 </div>
@@ -73,42 +30,44 @@
                         </div>
                         <div class="col-sm-9">
                             <div class="beta-products-list">
-                                <h4>Sản phẩm</h4>
+                                <h4>${tendanhmuc}</h4>
                                 <div class="row">
-                                    <% for (Product p : listProduct) {%>
+                                    <c:forEach var="sp" items="${sanPhamList}">
+
                                     <div class="col-sm-4">
                                         <div class="single-item">
                                             <div class="single-item-header">
-                                                <a href="detail.jsp?id_product=<%=p.getId_product()%>&pages=1"><img src="image/product/<%=p.getImage()%>" alt="" width="320px" height="270px"></a>
+                                                <p class="masp" data-masp="${sp.getMasanpham()}" style="display: none"></p>
+
+                                                <a class="img-top" data-hinhsp="${sp.getHinhsanpham()}" href="<c:url value="/detail/${sp.getMasanpham()}" />"><img src="<c:url value="/resources/Images/product/${sp.getHinhsanpham()}" />" alt="" width="320px" height="270px"></a>
                                             </div>
                                             <div class="single-item-body">
-                                                <p class="single-item-title"><%=p.getName()%></p>
-                                                <p class="single-item-price">
-                                                    <span><%=p.getUnit_price()%></span>
+                                                <p class="single-item-title"  data-namesp="${sp.getTensanpham()}">${sp.getTensanpham()}</p>
+                                                <p class="single-item-price" data-gia="${sp.getGiatien()}">
+                                                    <span>${sp.getGiatien()}</span>
                                                 </p>
                                             </div>
                                             <div class="single-item-caption">
-                                                <a class="add-to-cart pull-left" href="CartServlet?command=plus&id_product=<%=p.getId_product()%>"><i class="fa fa-shopping-cart"></i></a>
-                                                <a class="beta-btn primary" href="detail.jsp?id_product=<%=p.getId_product()%>">Details <i class="fa fa-chevron-right"></i></a>
+                                                <a class="add-to-cart pull-left btn-giohang" ><i class="fa fa-shopping-cart"></i></a>
+                                                <a class="beta-btn primary" href="<c:url value="/detail/${sp.getMasanpham()}" />">Details <i class="fa fa-chevron-right"></i></a>
                                                 <div class="clearfix"></div>
                                             </div>
                                         </div>
                                         <div class="mb25"></div>
                                     </div> 
+                                    </c:forEach>
+                                    <p id="masoluong" data-masoluong="0" style="display: none">0</p>
 
-                                    <%}%>
                                 </div>
 
                             </div> <!-- .beta-products-list -->
                             <ul class="pagination">
                                 
                             
-                                <% for (int i=1; i<=(total/6)+1;i++){ 
-                                %>
+
                                 
-                                <li class=""><a href="product.jsp?id_type_product=<%=id_type_product %>&pages=<%=i %>"><%=i%></a></li>
-                                <% }%>
-                             
+                                <li class=""><a href=""></a></li>
+
                             </ul>
                             <div class="space50">&nbsp;</div>
 

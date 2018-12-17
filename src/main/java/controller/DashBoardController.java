@@ -10,6 +10,6 @@ public class DashBoardController {
 
     @GetMapping
     public String Default(){
-        return "index";
+        return "indexadmin";
     }
 }

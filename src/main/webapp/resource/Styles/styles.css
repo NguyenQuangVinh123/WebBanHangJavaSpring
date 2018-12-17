@@ -6914,6 +6914,7 @@ ul.sub-menu ul.sub-menu li:hover>a,ul.children ul.children li:hover>a {
 }
 
 .add-to-cart i {
+    cursor: pointer;
     font-size:22px;
     color:#fff;
     line-height:35px

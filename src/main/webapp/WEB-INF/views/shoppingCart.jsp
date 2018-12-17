@@ -1,19 +1,10 @@
-<%@page import="model.Cart"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8"%>
-<% 
-Cart cart = (Cart) session.getAttribute("cart");
- if(cart == null){
-                cart = new Cart();
-                session.setAttribute("cart",cart);
-            }
-         
 
-%>
 <div class="cart">
     
-        <div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (<%=cart.countItem() %>) <i class="fa fa-chevron-down"></i></div>
+        <div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng  <i class="fa fa-chevron-down"></i></div>
         <div class="beta-dropdown cart-body">
             <div class="cart-item">
                 <div class="media">

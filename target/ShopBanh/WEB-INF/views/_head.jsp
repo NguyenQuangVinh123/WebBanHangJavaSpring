@@ -11,6 +11,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <link rel="stylesheet" title="style" href="<c:url value="/resources/Styles/styles.css" />" />
+
 <link rel="stylesheet" title="style" href="<c:url value="/resources/Styles/huong-style.css" />" />
 <script language="JavaScript" src="<c:url value="/resources/js/main.js" />"></script>
 <script language="JavaScript" src="<c:url value="/resources/js/search.js" />"></script>

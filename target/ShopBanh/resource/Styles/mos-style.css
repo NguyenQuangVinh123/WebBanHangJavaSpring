@@ -154,11 +154,8 @@ tr.data:hover small {color: #5b5b5b;}
 }
 #wrapper {
     width: 950px;
-    padding: 15px 0 0 0;
     position: relative;
-    border-left: 1px solid #dcdcdc;
-    border-right: 1px solid #dcdcdc;
-    border-bottom: 1px solid #dcdcdc;
+
     float: center;
     margin: auto;
     text-align: left;
@@ -184,7 +181,7 @@ tr.data:hover small {color: #5b5b5b;}
     width: 100%;
     color: #2e2e2e;
     cursor: pointer;
-    padding: 10px 65px 10px 20px;
+    padding: 20px;
     -webkit-transition: padding-left 250ms ease-out;
     -moz-transition: padding-left 250ms ease-out;
     -o-transition: padding-left 250ms ease-out;
