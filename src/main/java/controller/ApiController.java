@@ -29,7 +29,7 @@ public class ApiController {
     }
     @GetMapping("ThemGioHang")
     @ResponseBody
-    public void ThemGioHang( @RequestParam String hinhsp,@RequestParam int masp,@RequestParam int soluong, @RequestParam String giatien, @RequestParam String tensp, HttpSession httpSession){
+    public String ThemGioHang( @RequestParam String hinhsp,@RequestParam int masp,@RequestParam int soluong, @RequestParam String giatien, @RequestParam String tensp, HttpSession httpSession){
 
         if(null == httpSession.getAttribute("giohang")){
             List<GioHang> gioHangs = new ArrayList<GioHang>();
@@ -41,9 +41,8 @@ public class ApiController {
             gioHang.setSoluong(1);
             gioHangs.add(gioHang);
             httpSession.setAttribute("giohang",gioHangs);
-            List<GioHang> listgiohangs = (List<GioHang>) httpSession.getAttribute("giohang");
-
-            System.out.println(listgiohangs.size());
+//            List<GioHang> listgiohangs = (List<GioHang>) httpSession.getAttribute("giohang");
+            return gioHangs.size() + "";
 
         }else{
             List<GioHang> listgiohangs = (List<GioHang>) httpSession.getAttribute("giohang");
@@ -61,10 +60,8 @@ public class ApiController {
                 int soluongmoi = listgiohangs.get(vitri).getSoluong() + 1;
                 listgiohangs.get(vitri).setSoluong(soluongmoi);
             }
-        }
-        List<GioHang> listgiohang = (List<GioHang>) httpSession.getAttribute("giohang");
-        for (GioHang gioHang : listgiohang){
-            System.out.println(gioHang.getMasp()+ "-" + gioHang.getTensp()+ "-" + gioHang.getSoluong()+ "-" + gioHang.getGiatien());
+            return listgiohangs.size() + "";
+
         }
 
     }
@@ -81,14 +78,26 @@ public class ApiController {
         return -1;
     }
 
-    @GetMapping("LaySoLuongGioHang")
+    @GetMapping("XoaGioHang")
     @ResponseBody
-    public String LaySoLuongGioHang(HttpSession httpSession){
+    public String XoaGioHang(@RequestParam int masp, HttpSession httpSession){
         if(null != httpSession.getAttribute("giohang")){
             List<GioHang> gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
-            return gioHangs.size()+ "";
+            int vitri  = KiemTraSPDaTonTaiGioHang(masp,httpSession);
+            gioHangs.remove(vitri);
         }
+
         return  null;
     }
+
+//    @GetMapping("LaySoLuongGioHang")
+//    @ResponseBody
+//    public String LaySoLuongGioHang(HttpSession httpSession){
+//        if(null != httpSession.getAttribute("giohang")){
+//            List<GioHang> gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
+//            return gioHangs.size()+ "";
+//        }
+//        return  null;
+//    }
 
 }

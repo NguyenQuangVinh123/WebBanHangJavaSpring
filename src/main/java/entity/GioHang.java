@@ -6,6 +6,7 @@ public class GioHang {
     int soluong;
     String giatien;
     String tensp;
+    int machitiet;
 
     public int getMasp() {
         return masp;
@@ -29,6 +30,14 @@ public class GioHang {
 
     public void setSoluong(int soluong) {
         this.soluong = soluong;
+    }
+
+    public int getMachitiet() {
+        return machitiet;
+    }
+
+    public void setMachitiet(int machitiet) {
+        this.machitiet = machitiet;
     }
 
     public String getGiatien() {

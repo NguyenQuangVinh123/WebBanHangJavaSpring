@@ -20,13 +20,16 @@
 
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <img class="img-top" data-hinhsp="${sp.getHinhsanpham()}" src="<c:url value="../resources/Images/product/${sanPham.getHinhsanpham()}" />" alt="">
+                                    <img class="img-top" data-hinhsp="${sanPham.getHinhsanpham()}" src="<c:url value="/resources/Images/product/${sanPham.getHinhsanpham()}" />" alt="">
                             </div>
-                            <div class="col-sm-8">
+                                <%--<p class="masp" data-masp="${sanPham.getMachitiet()}" style="display: none"></p>--%>
+
+                                <div class="col-sm-8">
                                 <div class="single-item-body">
                                     <p class="single-item-title">${sanPham.getTensanpham()}</p>
                                     <p class="single-item-price">
-                                        <span>${sanPham.getGiatien()} VND</span>
+
+                                    <span>${sanPham.getGiatien()} VND</span>
                                     </p>
                                 </div>
 

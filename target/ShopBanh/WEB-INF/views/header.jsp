@@ -1,4 +1,3 @@
-<%@page import="java.util.Map"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
@@ -47,15 +46,7 @@
                     <div class="cart">
 
                         <div class="beta-select">
-                            <c:if test="${soluongsanphamgiohang} > 0">
-                                <a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng <span class="soluongiohang">(${soluongsanphamgiohang})</span></a>
-
-                            </c:if>
-                            <c:if test="${soluongsanphamgiohang} <= 0">
-                                <a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng <span class="soluongiohang">(0)</span></a>
-
-                            </c:if>
-                            <%--<i class="fa fa-chevron-down"></i>--%>
+                            <a href="/giohang"><i class="fa fa-shopping-cart"></i> Giỏ hàng <span class="soluongiohang">(${soluongsanphamgiohang})</span></a>
                         </div>
                         <%--<div class="beta-dropdown cart-body">--%>
                                 <%--<div class="cart-item" id="cart-items">--%>

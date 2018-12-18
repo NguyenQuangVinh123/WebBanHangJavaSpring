@@ -28,6 +28,7 @@
                     <p class="single-item-price" data-gia="${sp.getGiatien()}">
                         <span  >${sp.getGiatien()} VNĐ</span>
                     </p>
+
                 </div>
                 <div class="single-item-caption">
                     <a class="add-to-cart pull-left btn-giohang" ><i class="fa fa-shopping-cart"></i></a>
