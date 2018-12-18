@@ -54,10 +54,14 @@ public class TrangChuController {
             modelMap.addAttribute("giohang",gioHangs);
         }
         List<DanhMucSanPham> listdanhmuc = danhMucService.LayDanhMuc();
-
         modelMap.addAttribute("listdanhmuc",listdanhmuc);
         List<SanPham> listsp = sanPhamService.LayDanhSachSanPhamLimit(0);
         modelMap.addAttribute("listsp",listsp);
+        if(null != httpSession.getAttribute("giohang")){
+            List<GioHang> gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
+            modelMap.addAttribute("soluongsanphamgiohang",gioHangs.size());
+        }
+
         return  "trangchu";
     }
 

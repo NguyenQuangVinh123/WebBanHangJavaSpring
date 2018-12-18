@@ -13,10 +13,9 @@
 						<li><a href="#">Sản phẩm</a>
 							<ul class="sub-menu">
 								<c:forEach var="value" items="${listdanhmuc}">
-									<li><a href="<c:url value="sanpham/${value.getMadanhmuc()}/${value.getTendanhmuc()}" />">${value.getTendanhmuc()}</a></li>
+									<li><a href="<c:url value="/sanpham/${value.getMadanhmuc()}/${value.getTendanhmuc()}" />">${value.getTendanhmuc()}</a></li>
 
 								</c:forEach>
-								<li>a</li>
 							</ul>
 						</li>
 						<li><a href="about.jsp">Giới thiệu</a></li>

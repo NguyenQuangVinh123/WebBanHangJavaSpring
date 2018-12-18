@@ -25,11 +25,11 @@
             }
         %>
 
-        <jsp:include page="header.jsp"></jsp:include>
+        <jsp:include page="header_admin.jsp"></jsp:include>
 
             <div id="wrapper">
 
-            <jsp:include page="menu.jsp"></jsp:include>
+            <jsp:include page="menu_admin.jsp"></jsp:include>
 
                 <div id="rightContent">
                     <h3>Cập nhật danh mục</h3>

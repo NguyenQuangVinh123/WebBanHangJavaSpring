@@ -26,7 +26,7 @@
                         <div class="space60">&nbsp;</div>
                         <div class="row">
                             <div class="col-sm-3">
-                            <jsp:include page="leftmenu_product_type.jsp" />
+                            <jsp:include page="admin/leftmenu_product_type.jsp" />
                         </div>
                         <div class="col-sm-9">
                             <div class="beta-products-list">

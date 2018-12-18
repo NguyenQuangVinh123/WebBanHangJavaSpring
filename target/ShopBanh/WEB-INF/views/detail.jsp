@@ -20,13 +20,13 @@
 
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <img src="<c:url value="../resources/Images/product/${sanPham.getHinhsanpham()}" />" alt="">
+                                    <img class="img-top" data-hinhsp="${sp.getHinhsanpham()}" src="<c:url value="../resources/Images/product/${sanPham.getHinhsanpham()}" />" alt="">
                             </div>
                             <div class="col-sm-8">
                                 <div class="single-item-body">
                                     <p class="single-item-title">${sanPham.getTensanpham()}</p>
                                     <p class="single-item-price">
-                                        <span>${sanPham.getGiatien()} VN</span>
+                                        <span>${sanPham.getGiatien()} VND</span>
                                     </p>
                                 </div>
 
@@ -40,7 +40,7 @@
 
                                 <div class="single-item-options">
 
-                                    <a class="add-to-cart btn-giohang" href="#"><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="add-to-cart btn-giohang"><i class="fa fa-shopping-cart"></i></a>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>

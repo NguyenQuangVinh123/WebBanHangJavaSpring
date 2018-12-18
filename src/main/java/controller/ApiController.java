@@ -81,10 +81,14 @@ public class ApiController {
         return -1;
     }
 
-//    @GetMapping("ThemGioHang")
-//    @ResponseBody
-//    public String LaySoLuongGioHang(){
-//        return  null;
-//    }
+    @GetMapping("LaySoLuongGioHang")
+    @ResponseBody
+    public String LaySoLuongGioHang(HttpSession httpSession){
+        if(null != httpSession.getAttribute("giohang")){
+            List<GioHang> gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
+            return gioHangs.size()+ "";
+        }
+        return  null;
+    }
 
 }

@@ -40,9 +40,41 @@ $(document).ready(function(){
                     masp : masp,
                 },
                 success: function (value) {
+                    // var node = document.createElement("span");
+                    // node.className = "cart-item-title";
+                    //
+                    // var textnode = document.createTextNode(tensp);
+                    // node.appendChild(textnode);
+                    // var x = document.getElementsByClassName("img-small")[0].getAttribute("src");
+                    // var y = x+hinhsp;
+                    // var node1 = document.createElement("img");
+                    // node1.setAttribute("src", y) ;
+                    // node1.setAttribute("width", "50px") ;
+                    // node1.setAttribute("height", "50px") ;
 
+
+
+                    // node1.appendChild(textnode);
+                    // document.getElementById("cart-items").appendChild(node1);
+                    //  document.getElementById("cart-items").appendChild(node);
+
+
+
+                    // var textnode = document.createAttribute("src",y);
+                    // var node_img = document.createElement("img");
+                    // // node_img.className("")
+                    // node_img.appendChild(textnode);
+                    // document.getElementById("cart-items").appendChild(node_img);
+                }
+            }).done(function () {
+            $.ajax({
+                url: '/api/LaySoLuongGioHang',
+                type: 'GET',
+                success: function (value) {
+                    $(".soluongiohang").html( "<span>" + "(" +  value + ")" + "</span>") ;
                 }
             })
+        })
     })
 });
 

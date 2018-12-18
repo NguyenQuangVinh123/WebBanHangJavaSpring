@@ -9,6 +9,6 @@ public class DashBoardSanPhamController {
 
     @RequestMapping
     public String Default(){
-        return "manager_product";
+        return "admin/manager_product";
     }
 }

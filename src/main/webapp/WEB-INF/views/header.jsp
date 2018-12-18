@@ -46,33 +46,39 @@
                 <div class="beta-comp">
                     <div class="cart">
 
-                        <div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng  <i class="fa fa-chevron-down"></i></div>
-                        <div class="beta-dropdown cart-body">
-                            <%--<c:forEach var="cart" items="${gioHangs}">--%>
-                                <div class="cart-item">
-                                    <div class="media">
-                                        <a class="pull-left" href="#"><img src="<c:url value="resources/Images/${gioHangs.getHinhsp()}" />" alt="" width="50px" height="50px"></a>
+                        <div class="beta-select">
+                            <c:if test="${soluongsanphamgiohang} > 0">
+                                <a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng <span class="soluongiohang">(${soluongsanphamgiohang})</span></a>
 
-                                        <div class="media-body pl20">
-                                            <span class="cart-item-title">${gioHangs.getTensp()}</span>
+                            </c:if>
+                            <c:if test="${soluongsanphamgiohang} <= 0">
+                                <a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng <span class="soluongiohang">(0)</span></a>
 
-                                            <span class="cart-item-amount">${gioHangs.getGiatien()} đồng</span><a href="#" style="float: right;"><i class="fas fa-times fa-2x"></i></a></span>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            <%--</c:forEach>--%>
-
-                            <div class="cart-caption">
-                                <div class="cart-total text-right">Tổng tiền: <span class="cart-total-value"></span></div>
-                                <div class="clearfix"></div>
-
-                                <div class="center">
-                                    <div class="space10">&nbsp;</div>
-                                    <a href="checkout.jsp" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
-                                </div>
-                            </div>
+                            </c:if>
+                            <%--<i class="fa fa-chevron-down"></i>--%>
                         </div>
+                        <%--<div class="beta-dropdown cart-body">--%>
+                                <%--<div class="cart-item" id="cart-items">--%>
+                                    <%--<div class="media">--%>
+                                        <%--<img style="display: none" class="img-small" src="<c:url value="/resources/Images/product/" />" alt="" width="50px" height="50px">--%>
+                                        <%--<div class="media-body pl20">--%>
+                                            <%--<span class="cart-item-title"></span>--%>
+                                            <%--<span class="cart-item-amount"> đồng</span><a href="#" style="float: right;"><i class="fas fa-times fa-2x"></i></a></span>--%>
+
+                                        <%--</div>--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
+
+                            <%--<div class="cart-caption">--%>
+                                <%--<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value"></span></div>--%>
+                                <%--<div class="clearfix"></div>--%>
+
+                                <%--<div class="center">--%>
+                                    <%--<div class="space10">&nbsp;</div>--%>
+                                    <%--<a href="checkout.jsp" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
 
                     </div>
                 </div>
