@@ -32,7 +32,7 @@
 
 <div class="container">
     <div id="content">
-
+    <form method="post"  >
             <div class="row">
                 <div class="col-sm-6">
                     <h4></h4>
@@ -40,27 +40,22 @@
 
                     <div class="form-block">
                         <label for="name">Họ tên*</label>
-                        <input type="text" id="name" name="name" placeholder="Họ và tên" >
-                    </div>
-
-
-                    <div class="form-block">
-                        <label for="email">Email*</label>
-                        <input type="email" id="email" name="email"  placeholder="expample@gmail.com">
+                        <input type="text" id="name" name="tenkhachhang" placeholder="Họ và tên" >
                     </div>
 
                     <div class="form-block">
                         <label for="adress">Địa chỉ giao hàng*</label>
-                        <input type="text" id="adress" name="address" placeholder="Địa chỉ giao hàng" >
+                        <input type="text" id="adress" name="diachigiaohang" placeholder="Địa chỉ giao hàng" >
                     </div>
-
 
                     <div class="form-block">
                         <label for="phone">Điện thoại*</label>
-                        <input type="text" id="phone" name="phone" placeholder="Số điện thoại liên lạc" >
+                        <input type="text" id="phone" name="sodt" placeholder="Số điện thoại liên lạc" >
                     </div>
-
-
+                    <div class="form-block">
+                        <label for="phone">Ghi chú*</label>
+                        <textarea type="text"  name="ghichu" placeholder="Ghi chú" ></textarea>
+                    </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="your-order">
@@ -96,7 +91,7 @@
                             <ul class="payment_methods methods">
                                 <li class="payment_method_bacs">
                                     <input id="payment_method_bacs" type="radio" class="input-radio"
-                                           name="payment_method" value="COD" checked="checked"
+                                           name="hinhthucgiaohang" value="COD" checked="checked"
                                            data-order_button_text="">
                                     <label for="payment_method_bacs">Thanh toán khi nhận hàng </label>
                                     <div class="payment_box payment_method_bacs" style="display: block;">
@@ -107,7 +102,7 @@
 
                                 <li class="payment_method_cheque">
                                     <input id="payment_method_cheque" type="radio" class="input-radio"
-                                           name="payment_method" value="ATM" data-order_button_text="">
+                                           name="hinhthucgiaohang" value="ATM" data-order_button_text="">
                                     <label for="payment_method_cheque">Chuyển khoản </label>
                                     <div class="payment_box payment_method_cheque" style="display: none;">
                                         Chuyển tiền đến tài khoản sau:
@@ -120,16 +115,12 @@
                             </ul>
                         </div>
 
-                        <div class="text-center"><a class="beta-btn primary" href="#">Đặt hàng <i
-                                class="fa fa-chevron-right"></i></a></div>
+                        <div class="text-center"><input type="submit" value="Đặt hàng" /> <i
+                                class="fa fa-chevron-right"></i></div>
                     </div>
                 </div>
             </div>
-
-
-
-
-
+    </form>
     </div>
 
 </div> <!-- #content -->

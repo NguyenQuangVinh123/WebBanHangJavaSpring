@@ -11,6 +11,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -24,9 +25,17 @@ public class SanPhamDAO implements SanPhamImp {
     @Transactional
     public List<SanPham> LayDanhSachSanPhamLimit(int spbatdau) {
         Session session = sessionFactory.getCurrentSession();
-        String query = "FROM SANPHAM";
+        List<SanPham> listSp = new ArrayList<SanPham>();
+        if (spbatdau < 0){
+            String query1 = "FROM SANPHAM";
+             listSp = (List<SanPham>) session.createQuery(query1).getResultList();
 
-        List<SanPham> listSp = (List<SanPham>) session.createQuery(query).setFirstResult(spbatdau).setMaxResults(16).getResultList();
+
+        }else{
+            String query = "FROM SANPHAM";
+            listSp = (List<SanPham>) session.createQuery(query).setFirstResult(spbatdau).setMaxResults(10).getResultList();
+        }
+
 
         return listSp;
     }
@@ -49,5 +58,15 @@ public class SanPhamDAO implements SanPhamImp {
 
         List<SanPham> listSp = (List<SanPham>) session.createQuery(query).getResultList();
         return listSp;
+    }
+
+    @Override
+    @Transactional
+    public boolean XoaSanPhamTheoMaSanPham(int masp) {
+        Session session = sessionFactory.getCurrentSession();
+        SanPham sanPham = session.get(SanPham.class , masp);
+
+        session.delete(sanPham);
+        return false;
     }
 }

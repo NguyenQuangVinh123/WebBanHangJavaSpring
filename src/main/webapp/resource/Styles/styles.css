@@ -766,9 +766,7 @@ textarea {
     margin-bottom:10px
 }
 
-input[type="checkbox"] {
-    display:none
-}
+
 
 input[type="checkbox"]+label {
     position:relative;
@@ -5850,9 +5848,7 @@ textarea {
     margin-bottom:10px
 }
 
-input[type="checkbox"] {
-    display:none
-}
+
 
 input[type="checkbox"]+label {
     position:relative;
@@ -8193,7 +8189,7 @@ ul.payment_methods,.woocommerce-page #payment ul.payment_methods {
 }
 
 .beta-btn {
-    color:#fff;
+    color:black;
     border:1px solid  #57a7c6;
     display:inline-block;
     padding:6px 20px

@@ -102,6 +102,61 @@ $(document).ready(function () {
         })
     });
 
+    $("body").on("click",".pagination-items",function () {
+        $(".pagination-items").removeClass("active");
+        $(this).addClass("active");
+        var sotrang = $(this).text();
+        var spbatdau = (sotrang - 1) * 10;
+
+        $.ajax({
+            url: '/api/LaySanPhamLimit',
+            type: 'GET',
+            data: {
+                spbatdau: spbatdau,
+            },
+            success: function (value) {
+                var tbodysanpham = $("#table-sanpham").find("tbody").empty();
+
+                tbodysanpham.append(value);
+            }
+
+        })
+    });
+
+    $("#check-all").change(function () {
+
+        if(this.checked){
+            $("#table-sanpham input").each(function () {
+                $(this).attr("checked",true);
+            })
+        }else{
+            $("#table-sanpham input").each(function () {
+                $(this).attr("checked",false);
+            })
+        }
+    })
+
+    $("#xoa-sanpham").click(function () {
+        $("#table-sanpham > tbody input:checked").each(function () {
+            var masp = $(this).val();
+            alert(masp);
+            var This = $(this);
+            $.ajax({
+                url: '/api/XoaSanPham',
+                type: 'GET',
+                data: {
+                    masp: masp,
+                },
+                success: function (value) {
+                    This.closest("tr").remove();
+                }
+
+            })
+        })
+    });
+
+   
+
 
 });
 

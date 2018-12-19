@@ -8,11 +8,13 @@ public class HoaDon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int mahoadon;
-    String tenkhachahng;
+    String tenkhachhang;
     String sodt;
     String diachigiaohang;
     boolean tinhtrang;
     String ngaylap;
+    String hinhthucgiaohang;
+    String ghichu;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "mahoadon")
@@ -26,12 +28,12 @@ public class HoaDon {
         this.mahoadon = mahoadon;
     }
 
-    public String getTenkhachahng() {
-        return tenkhachahng;
+    public String getTenkhachhang() {
+        return tenkhachhang;
     }
 
-    public void setTenkhachahng(String tenkhachahng) {
-        this.tenkhachahng = tenkhachahng;
+    public void setTenkhachhang(String tenkhachhang) {
+        this.tenkhachhang = tenkhachhang;
     }
 
     public String getSodt() {
@@ -72,6 +74,22 @@ public class HoaDon {
 
     public void setDanhsachchitiethoadon(Set<ChiTietHoaDon> danhsachchitiethoadon) {
         this.danhsachchitiethoadon = danhsachchitiethoadon;
+    }
+
+    public String getHinhthucgiaohang() {
+        return hinhthucgiaohang;
+    }
+
+    public void setHinhthucgiaohang(String hinhthucgiaohang) {
+        this.hinhthucgiaohang = hinhthucgiaohang;
+    }
+
+    public String getGhichu() {
+        return ghichu;
+    }
+
+    public void setGhichu(String ghichu) {
+        this.ghichu = ghichu;
     }
 }
 
