@@ -153,7 +153,7 @@ tr.data:hover small {color: #5b5b5b;}
     margin: 30px 5px 0 140px;
 }
 #wrapper {
-    width: 950px;
+    width: 95%;
     position: relative;
 
     float: center;
@@ -163,7 +163,7 @@ tr.data:hover small {color: #5b5b5b;}
     -webkit-box-shadow: 0px 0px 8px #dcdcdc;
 }
 #leftBar {
-    width: 185px;
+    width: 20%;
     float: left;
     padding: 0 0 20px 10px;
     border-right: 0px solid #dcdcdc;
@@ -193,7 +193,7 @@ tr.data:hover small {color: #5b5b5b;}
     text-shadow: 1px 1px #496d2a;
 }
 #rightContent {
-    width: 725px;
+    width: 80%;
     padding: 5px;
     float: right;
     border-left: 0px solid #dcdcdc;

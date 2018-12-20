@@ -29,4 +29,9 @@ public class SanPhamService implements SanPhamImp {
 
         return sanPhamDAO.LaySanPhamTheoDanhMuc(madanhmuc);
     }
+
+    @Override
+    public boolean XoaSanPhamTheoMaSanPham(int masp) {
+        return sanPhamDAO.XoaSanPhamTheoMaSanPham(masp);
+    }
 }

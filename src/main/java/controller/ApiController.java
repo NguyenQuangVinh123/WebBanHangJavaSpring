@@ -1,12 +1,14 @@
 package controller;
 
 import entity.GioHang;
+import entity.SanPham;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 
 import org.springframework.web.bind.annotation.*;
 import service.NhanVienService;
+import service.SanPhamService;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -19,6 +21,9 @@ public class ApiController {
 
     @Autowired
     NhanVienService nhanVienService;
+
+    @Autowired
+    SanPhamService sanPhamService;
 
     @GetMapping("KiemTraDangNhap")
     @ResponseBody
@@ -99,5 +104,34 @@ public class ApiController {
 //        }
 //        return  null;
 //    }
+
+    @GetMapping(path = "LaySanPhamLimit",produces = "text/plain;charset = utf-8")
+    @ResponseBody
+    public  String LaySanPhamLimit(@RequestParam int spbatdau){
+        String html = "";
+        List<SanPham> sanPhamList = sanPhamService.LayDanhSachSanPhamLimit(spbatdau);
+        for(SanPham sanPham : sanPhamList){
+            html += "<tr class='data'>";
+            html += "<th class='data'><div class='check-box'> <label><input class='' type='checkbox' value='"+sanPham.getMasanpham()+"' /></label></div></th>";
+            html +=  "<td class='data' width='30px'>"+sanPham.getMasanpham()+"</td>";
+            html +=  "<td class='data'>"+sanPham.getDanhmucsanpham().getMadanhmuc()+"</td>";
+            html +=  "<td class='data'>" + sanPham.getTensanpham() +"</td>";
+            html +=  "<td class='data'> " + sanPham.getGiatien() +"</td>";
+            html +=  "<td class='data'><img class='image1' style='width: 95px;height: 95px' src='/resources/Images/product/"+ sanPham.getHinhsanpham()+"'/><img class='image1Large' /></td>";
+            html +=  "<td class='data'>"+ sanPham.getMota()+"</td>";
+            html +=  "<td class= 'data' width='90px'><center><a href=''>Sửa</a>&nbsp;&nbsp; | &nbsp;&nbsp; <a href=''>Xóa</a></center></td>";
+            html += "</tr>";
+        }
+
+
+        return html;
+    }
+
+    @GetMapping("XoaSanPham")
+    @ResponseBody
+    public  String XoaSanPham(@RequestParam int masp){
+        sanPhamService.XoaSanPhamTheoMaSanPham(masp);
+        return "true";
+    }
 
 }
