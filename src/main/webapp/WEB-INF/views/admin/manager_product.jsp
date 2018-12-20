@@ -27,7 +27,7 @@
 
         <table class="data" id="table-sanpham">
             <div style="float: right;margin-bottom: 15px">
-                <button class="btn beta-btn">Thêm sản phẩm</button>
+                <button class="btn beta-btn"><a href="/insert_product">Thêm sản phẩm</a> </button>
                 <button class="btn beta-btn" id="xoa-sanpham">Xóa</button>
             </div>
             <thead>

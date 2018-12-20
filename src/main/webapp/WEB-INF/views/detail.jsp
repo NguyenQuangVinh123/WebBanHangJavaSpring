@@ -18,16 +18,19 @@
                     <div class="row">
                         <div class="col-sm-9">
 
-                            <div class="row">
+                            <div class="row single-item">
                                 <div class="col-sm-4">
+                                    <p class="masp" data-masp="${sanPham.getMasanpham()}" style="display: none"></p>
+                                    <p id="masoluong" data-masoluong="0" style="display: none">0</p>
+
                                     <img class="img-top" data-hinhsp="${sanPham.getHinhsanpham()}" src="<c:url value="/resources/Images/product/${sanPham.getHinhsanpham()}" />" alt="">
                             </div>
                                 <%--<p class="masp" data-masp="${sanPham.getMachitiet()}" style="display: none"></p>--%>
 
                                 <div class="col-sm-8">
                                 <div class="single-item-body">
-                                    <p class="single-item-title">${sanPham.getTensanpham()}</p>
-                                    <p class="single-item-price">
+                                    <p class="single-item-title" data-namesp="${sanPham.getTensanpham()}">${sanPham.getTensanpham()}</p>
+                                    <p class="single-item-price" data-gia="${sanPham.getGiatien()}">
 
                                     <span>${sanPham.getGiatien()} VND</span>
                                     </p>

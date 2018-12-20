@@ -7,11 +7,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import service.NhanVienService;
 import service.SanPhamService;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Controller
@@ -134,4 +140,29 @@ public class ApiController {
         return "true";
     }
 
+    @Autowired
+    ServletContext context;
+
+    @PostMapping("UploadFile")
+    @ResponseBody
+    public  String UploadFile(MultipartHttpServletRequest request){
+        String path_save_file = context.getRealPath("/resources/Images/product");
+        Iterator<String> listNames = request.getFileNames();
+        MultipartFile mpf = request.getFile(listNames.next());
+        File file_save = new File(path_save_file + mpf.getOriginalFilename());
+        try{
+            mpf.transferTo(file_save);
+        }catch (IllegalStateException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        System.out.println(path_save_file);
+        return "true";
+    }
+    @PostMapping("themsanpham")
+    @ResponseBody
+    public void themsanpham(@RequestParam String dataJson){
+        System.out.println(dataJson);
+    }
 }

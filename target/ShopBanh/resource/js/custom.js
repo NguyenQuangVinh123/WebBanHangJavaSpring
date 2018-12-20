@@ -33,7 +33,7 @@ $(document).ready(function () {
         var tensp = $(this).closest(".single-item").find(".single-item-title").attr("data-namesp");
         var masp = $(this).closest(".single-item").find(".masp").attr("data-masp");
         var giasp = $(this).closest(".single-item").find(".single-item-price").attr("data-gia");
-        var format_giasp = giasp.toLocaleString();
+        // var format_giasp = giasp.toLocaleString();
         var hinhsp = $(this).closest(".single-item").find(".img-top").attr("data-hinhsp");
         var soluong = $("#masoluong").attr("data-masoluong");
 
@@ -43,7 +43,7 @@ $(document).ready(function () {
             data: {
                 soluong: soluong,
                 hinhsp: hinhsp,
-                giatien: format_giasp,
+                giatien: giasp,
                 tensp: tensp,
                 masp: masp,
             },
@@ -155,7 +155,45 @@ $(document).ready(function () {
         })
     });
 
-   
+    var files = [];
+    $("#hinhanh").change(function (event) {
+        files = event.target.files;
+        forms = new FormData();
+        forms.append("file",files[0]);
+        $.ajax({
+            url: '/api/UploadFile',
+            type: 'POST',
+            data: forms,
+            processData: false,
+            contentType : false,
+            enctype : "multipart/form-data",
+            success: function (value) {
+            }
+
+        })
+    })
+    $("#btnThemSanPham").click(function () {
+        event.preventDefault();
+        var formdata = $("#form-data").serializeArray();
+        json = {};
+
+        $.each(formdata, function (i,field) {
+            json[field.name] = field.value;
+        });
+
+        $.ajax({
+            url: '/api/themsanpham',
+            type: 'POST',
+            data: {
+                dataJson : JSON.stringify(json)
+            },
+
+            success: function (value) {
+            }
+
+        })
+
+    })
 
 
 });

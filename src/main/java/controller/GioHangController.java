@@ -4,10 +4,12 @@ import entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import service.ChiTietHoaDonService;
 import service.DanhMucService;
 import service.HoaDonService;
@@ -44,7 +46,7 @@ public class GioHangController {
     }
 
     @PostMapping
-    public String ThemHoaDon(HttpSession httpSession, @RequestParam String tenkhachhang, @RequestParam String sodt, @RequestParam String diachigiaohang, @RequestParam String hinhthucgiaohang, @RequestParam String ghichu){
+    public String ThemHoaDon( HttpSession httpSession, @RequestParam String tenkhachhang, @RequestParam String sodt, @RequestParam String diachigiaohang, @RequestParam String hinhthucgiaohang, @RequestParam String ghichu){
         if(null != httpSession.getAttribute("giohang")){
             List<GioHang> gioHangs = (List<GioHang>) httpSession.getAttribute("giohang");
             HoaDon hoaDon = new HoaDon();
@@ -74,8 +76,6 @@ public class GioHangController {
                 System.out.println("Them that bai");
             };
         }
-
-        System.out.println(hinhthucgiaohang + "" +tenkhachhang + "" + ghichu);
-        return "giohang";
+        return "success";
     }
 }

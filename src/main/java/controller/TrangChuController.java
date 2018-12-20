@@ -21,7 +21,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping({"/","/home"})
 @SessionAttributes("giohang")
 public class TrangChuController {
 

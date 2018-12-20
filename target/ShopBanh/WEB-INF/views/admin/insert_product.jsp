@@ -23,32 +23,40 @@
 
                 <div id="rightContent">
                     <h3>Thông tin  sản phẩm</h3>
-                    <form action="" method="post">
+                    <form id="form-data">
                         <table width="95%">
                             <tr>
                                 <td style="float: right"><b>Tên sản phẩm:</b></td>
-                                <td><input type="text" class="sedang" name="tenDanhMuc"></td>
+                                <td><input type="text" class="sedang" name="tensanpham"></td>
                             </tr>
                             <tr>
                                 <td style="float: right"><b>Giá sản phẩm:</b></td>
-                                <td><input type="text" class="sedang" name="giaSanPham"></td>
+                                <td><input type="text" class="sedang" name="giatien"></td>
                             </tr>
                             <tr>
                                 <td style="float: right"><b>Hình ảnh:</b></td>
-                                <td><input type="file" class="sedang" name="hinhAnh"></td>
+                                <td><input type="file" id="hinhanh" class="sedang" name="hinhanh"></td>
                             </tr>
                             <tr>
                                 <td style="float: right"><b>Tên loại sản phẩm:</b></td>
-                                <td><input type="text" class="sedang" name="loaiSanPham"></td>
-                            </tr>
-                            <tr>
                                 <td>
-                                    <input type="hidden" name="command" value="insert">
-                                    <input type="submit" class="button" value="Lưu dữ liệu">
+                                    <select name="danhmucsanpham" id="danhmucsanpham">
+                                        <c:forEach var="sp" items="${listdanhmuc}">
+                                            <option value="${sp.madanhmuc}">${sp.tendanhmuc}</option>
+                                        </c:forEach>
+
+                                    </select>
                                 </td>
                             </tr>
-                    </table>
-                </form>
+                            <tr style="float: right;margin-top: 50px">
+                                <td>
+
+                                    <button class="beta-btn beta-btn-medium-sea" id="btnThemSanPham">Thêm sản phẩm</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+
             </div>
             <div class="clear"></div>
 

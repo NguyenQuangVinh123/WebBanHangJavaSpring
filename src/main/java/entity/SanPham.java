@@ -18,33 +18,12 @@ public class SanPham {
     String unit;
     String created_at;
     String updated_at;
-    @OneToMany(fetch =FetchType.EAGER  ,cascade = CascadeType.ALL)
-    @JoinColumn(name = "masanpham")
-    Set<ChiTietSanPham> chitietsanpham;
 
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "CHITIETKHUYENMAI",
-            joinColumns = {@JoinColumn(name = "masanpham",referencedColumnName = "masanpham")},
-            inverseJoinColumns = {@JoinColumn(name = "makhuyenmai",referencedColumnName = "makhuyenmai")}
-    )
-    Set<KhuyenMai> danhsachkhuyenmai;
 
-    public Set<KhuyenMai> getDanhsachkhuyenmai() {
-        return danhsachkhuyenmai;
-    }
 
-    public void setDanhsachkhuyenmai(Set<KhuyenMai> danhsachkhuyenmai) {
-        this.danhsachkhuyenmai = danhsachkhuyenmai;
-    }
 
-    public Set<ChiTietSanPham> getChitietsanpham() {
-        return chitietsanpham;
-    }
 
-    public void setChitietsanpham(Set<ChiTietSanPham> chitietsanpham) {
-        this.chitietsanpham = chitietsanpham;
-    }
 
     public int getMasanpham() {
         return masanpham;

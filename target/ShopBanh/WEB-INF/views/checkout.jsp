@@ -33,27 +33,28 @@
 <div class="container">
     <div id="content">
     <form method="post"  >
-            <div class="row">
+
+        <div class="row">
                 <div class="col-sm-6">
                     <h4></h4>
                     <div class="space20">&nbsp;</div>
 
                     <div class="form-block">
                         <label for="name">Họ tên*</label>
-                        <input type="text" id="name" name="tenkhachhang" placeholder="Họ và tên" >
+                        <input type="text" id="name" name="tenkhachhang" placeholder="Họ và tên" required>
                     </div>
 
                     <div class="form-block">
                         <label for="adress">Địa chỉ giao hàng*</label>
-                        <input type="text" id="adress" name="diachigiaohang" placeholder="Địa chỉ giao hàng" >
+                        <input type="text" id="adress" name="diachigiaohang" placeholder="Địa chỉ giao hàng" required >
                     </div>
 
                     <div class="form-block">
                         <label for="phone">Điện thoại*</label>
-                        <input type="text" id="phone" name="sodt" placeholder="Số điện thoại liên lạc" >
+                        <input type="text" id="phone" name="sodt" placeholder="Số điện thoại liên lạc" required>
                     </div>
                     <div class="form-block">
-                        <label for="phone">Ghi chú*</label>
+                        <label for="phone">Ghi chú</label>
                         <textarea type="text"  name="ghichu" placeholder="Ghi chú" ></textarea>
                     </div>
                 </div>
@@ -80,7 +81,7 @@
                             </c:forEach>
 
                             <div class="your-order-item">
-                                <div class="pull-left"><p class="your-order-f18" >Tổng tiền:<span id="tongtien">VNĐ</span></p></div>
+                                <div class="pull-left"><p class="your-order-f18" style="color: red;font-size: 22px" >Tổng tiền:<span id="tongtien"></span>  VND</p></div>
                                 <div class="pull-right"><h5 class="color-black"></h5></div>
                                 <div class="clearfix"></div>
                             </div>
@@ -107,16 +108,15 @@
                                     <div class="payment_box payment_method_cheque" style="display: none;">
                                         Chuyển tiền đến tài khoản sau:
                                         <br>- Số tài khoản: 123 456 789
-                                        <br>- CChủ TK: Nguyễn A
-                                        <br>- Ngân hàng OCB, Chi nhánh TPHCM
+                                        <br>- Chủ TK: Nguyễn A
+                                        <br>- Ngân hàng ABC, Chi nhánh TPHCM
                                     </div>
                                 </li>
 
                             </ul>
                         </div>
 
-                        <div class="text-center"><input type="submit" value="Đặt hàng" /> <i
-                                class="fa fa-chevron-right"></i></div>
+                        <div class="text-center"><input class="alert" style="padding: 10px;background-color: red" type="submit" value="Đặt hàng" /> </div>
                     </div>
                 </div>
             </div>

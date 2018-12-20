@@ -12,4 +12,6 @@ public class DashBoardController {
     public String Default(){
         return "admin/indexadmin";
     }
+
+
 }

@@ -1,8 +1,8 @@
 @charset "ISO-8859-1";
 
-/*.cart-body{*/
-	/*z-index:999;*/
-/*}*/
+.cart-body{
+	z-index:999;
+}
 .inner-header{
 	background-color: #ffffff
 }
