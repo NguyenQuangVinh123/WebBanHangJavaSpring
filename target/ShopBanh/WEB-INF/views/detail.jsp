@@ -22,7 +22,7 @@
                                 <div class="col-sm-4">
                                     <img class="img-top" data-hinhsp="${sanPham.getHinhsanpham()}" src="<c:url value="/resources/Images/product/${sanPham.getHinhsanpham()}" />" alt="">
                             </div>
-                                <p class="masp" data-masp="${sanPham.getMachitiet()}" style="display: none"></p>
+                                <%--<p class="masp" data-masp="${sanPham.getMachitiet()}" style="display: none"></p>--%>
 
                                 <div class="col-sm-8">
                                 <div class="single-item-body">
